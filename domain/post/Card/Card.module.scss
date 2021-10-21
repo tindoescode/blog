@@ -1,0 +1,12 @@
+.card {
+  @apply bg-gradient-to-r from-lime-200 to-lime-300 rounded-xl shadow-md p-2;
+  min-height: 5rem;
+  @apply divide-y divide-lime-600;
+
+  &_title {
+  }
+
+  &_description {
+    @apply pt-2 font-light;
+  }
+}

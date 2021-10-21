@@ -1,0 +1,148 @@
+//header
+.header {
+  & > .logo {
+    font-family: "Courier New", Courier, monospace;
+    @apply flex-grow px-4 py-2;
+
+    h1 {
+      margin: 0;
+      @apply font-bold;
+
+      a {
+        @apply text-black w-full leading-8;
+        z-index: 1;
+
+        &::before {
+          content: "";
+          background: url(/images/ColouredCloud1.svg) no-repeat top / contain;
+          width: 32px;
+          height: 20px;
+          position: absolute;
+          top: 0.33rem;
+
+          animation: flySlowly 20s linear infinite;
+
+          @keyframes flySlowly {
+            0% {
+              opacity: 1;
+            }
+            50% {
+              transform: translateX(4rem);
+              opacity: 0.8;
+            }
+            100% {
+              transform: translate(0);
+              opacity: 0.6;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  & > .navigator {
+    @apply list-none flex flex-col fixed bg-white top-0 bottom-0 left-0 right-0;
+    @apply gap-2 bg-white shadow-md rounded;
+
+    // For nav toggle
+    @apply invisible opacity-0;
+
+    @screen md {
+      @apply visible opacity-100;
+      @apply static;
+      @apply flex-row;
+    }
+
+    & > ul {
+      // Mobile devices
+      @apply list-none flex flex-col divide-y divide-cyan-200;
+      @apply pt-10;
+
+      // Bigger devices
+      @screen md {
+        @apply static;
+        @apply list-none flex flex-row p-2;
+        @apply divide-y-0; //disable divide
+      }
+
+      & > li {
+        @apply font-bold rounded;
+
+        @screen md {
+          & + li {
+            margin-left: 20px;
+          }
+        }
+      }
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+
+      @apply p-2;
+    }
+  }
+
+  & .menu_active {
+    opacity: 1;
+    @apply visible;
+  }
+
+  & .navigatorCollapse {
+    @apply md:hidden z-50; // hidden on bigger device
+
+    position: fixed;
+    @apply right-4 top-8; // position middle line
+
+    &,
+    &::before,
+    &::after {
+      background: black;
+      @apply w-8 h-0.5;
+      transition: transform 0.2s ease;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+
+    // Position top and bottom lines
+    &::before {
+      @apply -top-2;
+    }
+    &::after {
+      @apply top-2;
+    }
+
+    // When active
+    &__active {
+      // Hide middle line / Only move top and bottom lines
+      left: 10;
+      background-color: rgba(255, 255, 255, 0);
+
+      &::before,
+      &::after {
+        @apply top-0 left-0;
+      }
+
+      // Rotate
+      &::before {
+        transform: rotate(45deg);
+      }
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+  }
+}
