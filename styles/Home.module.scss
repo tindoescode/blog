@@ -1,0 +1,15 @@
+.avatar {
+  @apply w-32 h-32 rounded my-4 z-0;
+
+  @apply hover:scale-105 transform transition-all duration-500;
+}
+
+.info_wrapper {
+  @apply relative rounded shadow-md p-2 flex flex-col items-center max-h-72;
+
+  color: white;
+
+  > * {
+    z-index: 0;
+  }
+}
