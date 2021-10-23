@@ -1,0 +1,16 @@
+.container {
+  @apply flex flex-row justify-end p-1 text-center;
+
+  a {
+    @apply block text-black bg-clip-border p-2 bg-white bg-none h-10 w-10;
+  }
+  a:hover {
+    @apply bg-gray-200;
+  }
+  a:nth-child(1) {
+    @apply rounded-l-md;
+  }
+  a:nth-last-child(1) {
+    @apply rounded-r-md;
+  }
+}

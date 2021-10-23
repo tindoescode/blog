@@ -1,4 +1,5 @@
 import React, { ReactChild, ReactChildren } from "react";
+import Player from "../domain/youtube-player/Player";
 
 // Components
 import Footer from "./Footer";
@@ -15,6 +16,8 @@ const Layout = ({ children }: Props) => {
       {children}
 
       <Footer />
+
+      <Player />
     </div>
   );
 };

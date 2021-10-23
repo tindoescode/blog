@@ -5,7 +5,9 @@ import Link from "next/link";
 function Footer() {
   return (
     <div className={styles.footer}>
-      <div className="">&copy;Laputa all right reserved.</div>
+      <div className="order-last md:order-none">
+        &copy;Laputa all right reserved.
+      </div>
       <div className="">
         <h3>Contact</h3>
         <div className="flex flex-col">
