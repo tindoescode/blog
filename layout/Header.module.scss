@@ -42,7 +42,7 @@
 
   & > .navigator {
     @apply list-none flex flex-col fixed bg-white top-0 bottom-0 left-0 right-0;
-    @apply gap-2 bg-white shadow-md rounded;
+    @apply gap-2 bg-white shadow-md rounded z-10;
 
     // For nav toggle
     @apply invisible opacity-0;
@@ -61,7 +61,7 @@
       // Bigger devices
       @screen md {
         @apply static;
-        @apply list-none flex flex-row p-2;
+        @apply list-none flex flex-row p-0;
         @apply divide-y-0; //disable divide
       }
 
@@ -82,7 +82,7 @@
       justify-content: center;
       height: 100%;
 
-      @apply p-2;
+      @apply p-4;
     }
   }
 
@@ -92,10 +92,10 @@
   }
 
   & .navigatorCollapse {
-    @apply md:hidden z-50; // hidden on bigger device
+    @apply md:hidden; // hidden on bigger device
 
     position: fixed;
-    @apply right-4 top-8; // position middle line
+    @apply right-4 top-8 z-50; // position middle line
 
     &,
     &::before,

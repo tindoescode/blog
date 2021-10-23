@@ -24,7 +24,7 @@ function Header() {
         </h1>
       </div>
       <nav className={`${styles.navigator} ${menu ? styles.menu_active : ""}`}>
-        <ul className="flex-grow">
+        <ul className="flex-grow z-50">
           <li>
             <a href="" data-tooltip="Về trang chủ">
               Home

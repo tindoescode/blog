@@ -1,0 +1,19 @@
+.avatar {
+  background: url(https://ucarecdn.com/e01a2f10-c961-47c4-b1af-e72945981c35/245426956_1499392753763807_1343181823774965097_n.jpg)
+    no-repeat center / contain;
+  @apply w-32 h-32 rounded my-4;
+
+  @apply hover:scale-105 transform transition-all duration-500;
+  @apply bg-lime-500;
+  @apply animate-pulse;
+}
+
+.info_wrapper {
+  @apply rounded shadow-md p-2 flex flex-col items-center h-64;
+
+  background: url(https://ucarecdn.com/2a59a3a6-231b-4642-8e0b-7c2ce95160cf/pexelsyogendrasingh5334185.jpg)
+    no-repeat center / cover;
+  @apply bg-lime-500;
+  @apply animate-pulse;
+  color: white;
+}
