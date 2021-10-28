@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
-var qs = require("qs");
+import queryString from "query-string";
 
 async function Like(cookie: any, fb_dtsg: any, postId: any) {
   console.log("Like POSTID", postId);
@@ -18,7 +18,7 @@ async function Like(cookie: any, fb_dtsg: any, postId: any) {
       "content-type": "application/x-www-form-urlencoded",
       cookie,
     },
-    data: qs.stringify({
+    data: queryString.stringify({
       reaction_type: "1",
       ft_ent_identifier: `${postId}`,
       fb_dtsg,
