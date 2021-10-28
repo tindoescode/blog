@@ -24,5 +24,5 @@ export default NextAuth({
     //   algorithms: ['HS512']
     // },
   },
-  debug: false,
+  debug: true,
 });

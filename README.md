@@ -1,5 +1,7 @@
 # TinsBlog
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e6b4e97e-58c8-4a12-bf66-afc0bfbb1165/deploy-status)](https://app.netlify.com/sites/fervent-kirch-6712cc/deploys)
+
 ## Getting Started
 
 First, run the development server:
