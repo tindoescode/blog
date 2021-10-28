@@ -6,20 +6,6 @@ import useToggle from "../hooks/useToggle";
 import avatar from "../public/images/avatar.jpg";
 
 export default function Component() {
-  // // DOM Event not to be confused with React.MouseEvent
-  // const onMouseMove = (e: MouseEvent) => {
-  //   e.preventDefault();
-  //   console.log(e);
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener("mousemove", onMouseMove);
-
-  //   return () => {
-  //     window.removeEventListener("mousemove", onMouseMove);
-  //   };
-  // }, []);
-
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-2 my-2">
       <div className="grid gap-1 md:col-span-2">
@@ -53,7 +39,7 @@ export default function Component() {
           </div>
         </div>
 
-        <div className="mt-4 p-2 bg-black bg-opacity-80 text-black flex flex-col gap-2">
+        <div className="order-1 mt-4 p-2 bg-black bg-opacity-80 text-black flex flex-col gap-2">
           <h3 className="text-white">Liên hệ tôi</h3>
           <input
             type="text"

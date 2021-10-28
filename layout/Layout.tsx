@@ -13,11 +13,12 @@ const Layout = ({ children }: Props) => {
   return (
     <div>
       <Header />
-      {children}
+
+      <div className="my-1">{children}</div>
 
       <Footer />
 
-      <Player />
+      {/* <Player /> */}
     </div>
   );
 };

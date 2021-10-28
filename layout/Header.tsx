@@ -26,18 +26,26 @@ function Header() {
       <nav className={`${styles.navigator} ${menu ? styles.menu_active : ""}`}>
         <ul className="flex-grow z-50">
           <li>
-            <a href="" data-tooltip="Về trang chủ">
-              Home
-            </a>
+            <Link href="/">
+              <a data-tooltip="Về trang chủ">Home</a>
+            </Link>
           </li>
           <li>
-            <a href="">Blog</a>
+            <Link href="#">
+              <a>Blog</a>
+            </Link>
           </li>
           <li>
-            <a href="">About me</a>
+            <a>About me</a>
           </li>
           <li>
-            <a href="">Contact</a>
+            <a>Contact</a>
+          </li>
+
+          <li>
+            <Link href="/fb-your-crush">
+              <a>FB Crush snipping</a>
+            </Link>
           </li>
         </ul>
 
