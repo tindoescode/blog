@@ -20,10 +20,10 @@
     "react-dom": "17.0.2",
     "react-hook-form": "^7.17.5",
     "react-youtube": "^7.13.1",
-    "sass": "^1.43.2"
+    "sass": "^1.43.2",
+    "@types/qs": "^6.9.7"
   },
   "devDependencies": {
-    "@types/qs": "^6.9.7",
     "@types/react": "^17.0.32",
     "autoprefixer": "^10.3.7",
     "eslint": "7.32.0",
