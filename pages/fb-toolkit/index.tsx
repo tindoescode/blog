@@ -310,29 +310,34 @@ function FacebookCrush(): ReactElement {
         </button>
       </form>
 
-      <div className="grid grid-cols-4 my-2 gap-2">
-        <ul className="shadow-xl border-2 border-lime-300 bg-white rounded-md divide-y divide-lime-400">
-          {menu.map((item, index: number) => (
-            <li
-              key={index}
-              className="p-2 hover:bg-lime-200 cursor-pointer"
-              onClick={async () => setSelectMenu(index)}
-            >
-              {item.name}
-            </li>
-          ))}
-        </ul>
-        <div className="col-span-3 shadow-xl border-2 border-lime-300 bg-white rounded-md p-2">
-          {menu[selectMenu].render()}
-        </div>
-      </div>
+      {/* User must be login with token/cookie */}
+      {cookie && token && (
+        <>
+          <div className="grid grid-cols-4 my-2 gap-2">
+            <ul className="shadow-xl border-2 border-lime-300 bg-white rounded-md divide-y divide-lime-400">
+              {menu.map((item, index: number) => (
+                <li
+                  key={index}
+                  className="p-2 hover:bg-lime-200 cursor-pointer"
+                  onClick={async () => setSelectMenu(index)}
+                >
+                  {item.name}
+                </li>
+              ))}
+            </ul>
+            <div className="col-span-3 shadow-xl border-2 border-lime-300 bg-white rounded-md p-2">
+              {menu[selectMenu].render()}
+            </div>
+          </div>
 
-      <button
-        className="block p-1 bg-lime-500 text-white shadow-md"
-        onClick={() => fetchPosts(["100000313082004"])}
-      >
-        Lấy danh sách bài viết
-      </button>
+          <button
+            className="block p-1 bg-lime-500 text-white shadow-md"
+            onClick={() => fetchPosts(["100000313082004"])}
+          >
+            Lấy danh sách bài viết
+          </button>
+        </>
+      )}
 
       {/* Log */}
       <div className="relative">
