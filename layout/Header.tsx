@@ -50,7 +50,7 @@ function Header() {
         </ul>
 
         <div className="bg-black text-white rounded-t-md  md:rounded">
-          <Link href="/api/auth/login">
+          <Link href="/api/auth/signin">
             <a className="text-white flex gap-1 items-center">
               <LoginSvg />
               Đăng nhập

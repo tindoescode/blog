@@ -9,8 +9,8 @@ export default NextAuth({
       clientSecret: process.env.GITHUB_SECRET,
       scope: "read:user",
     }),
-    // ...add more providers here
   ],
+  database: process.env.MONGODB_URI,
   jwt: {
     signingKey: process.env.JWT_SIGNING_PRIVATE_KEY,
 
