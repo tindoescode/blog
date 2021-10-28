@@ -103,7 +103,7 @@ function FacebookCrush(): ReactElement {
     </div>
   );
 
-  const FriendFilter = () => {
+  const AutoLike = () => {
     const {
       items: friends,
       setItems: setFriends,
@@ -249,11 +249,11 @@ function FacebookCrush(): ReactElement {
     );
   };
 
-  const AutoLike = () => (
+  const FriendFilter = () => (
     <>
-      <h2>Chọn target</h2>
+      <h2>Lọc friend</h2>
 
-      <FriendFilter />
+      <p>Sẽ cập nhật sau...</p>
     </>
   );
 
