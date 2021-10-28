@@ -179,7 +179,7 @@ function FacebookCrush(): ReactElement {
       <h2>Danh sách bài viết</h2>
 
       {userPosts.map((userPost) => (
-        <div className="p-2">
+        <div className="p-2" key={userPost.id}>
           <h3>{userPost.name}</h3>
           <table className="table-fixed">
             <thead>
@@ -191,7 +191,7 @@ function FacebookCrush(): ReactElement {
             </thead>
             <tbody>
               {userPost.posts.data.map((post) => (
-                <tr>
+                <tr key={post.id}>
                   <td className="border border-green-500 p-2">{post.id}</td>
                   <td className="border border-green-500 p-2">
                     {post.message}
