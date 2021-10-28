@@ -86,7 +86,7 @@ function FacebookCrush(): ReactElement {
       setCookie(data.cookie);
       logging("Đăng nhập thành công!");
     },
-    [cookie]
+    [cookie, reset, setCookie]
   );
 
   // For logging textarea
