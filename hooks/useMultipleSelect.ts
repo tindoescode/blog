@@ -4,21 +4,15 @@ export default function useMultipleSelect<T>() {
   const [items, setItems] = useState<Array<T>>([]);
   const [selected, setSelected] = useState<Array<number>>([]); // index
 
-  const select = useCallback(
-    (index: number) => {
-      if (!selected.includes(index)) {
-        setSelected((prevState) => [...prevState, index]);
-      }
-    },
-    [selected]
-  );
+  const select = (index: number) => {
+    if (!selected.includes(index)) {
+      setSelected((prevState) => [...prevState, index]);
+    }
+  };
 
-  const deselect = useCallback(
-    async (index: number) => {
-      setSelected((prevState) => prevState.filter((item) => item !== index));
-    },
-    [selected]
-  );
+  const deselect = async (index: number) => {
+    setSelected((prevState) => prevState.filter((item) => item !== index));
+  };
 
   const getSelected = useCallback(async (index) => {
     let arr: Array<T> = [];

@@ -1,14 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
-import * as qs from "qs";
+import qs from "qs";
 
 async function Like(cookie: any, fb_dtsg: any, postId: any) {
-  var data = qs.stringify({
-    reaction_type: "1",
-    ft_ent_identifier: `${postId}`,
-    fb_dtsg,
-  });
-
   console.log("Like POSTID", postId);
 
   const userId = /c_user=(\d+);/.exec(cookie)[1];
@@ -24,7 +18,11 @@ async function Like(cookie: any, fb_dtsg: any, postId: any) {
       "content-type": "application/x-www-form-urlencoded",
       cookie,
     },
-    data: data,
+    data: qs.stringify({
+      reaction_type: "1",
+      ft_ent_identifier: `${postId}`,
+      fb_dtsg,
+    }),
   };
 
   return await axios(config);

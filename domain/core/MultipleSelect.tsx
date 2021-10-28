@@ -44,9 +44,7 @@ function MultipleSelect({
     const { value } = event.target;
     setFindText(value);
 
-    console.log("On find text change, length = ", value);
     if (value.length === 0) {
-      console.log("Filter items = items");
       setFilterItems(items);
       return;
     }
