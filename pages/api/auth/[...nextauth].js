@@ -1,6 +1,8 @@
 import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 
+console.log("MONGODB_URI", process.env.MONGODB_URI);
+
 export default NextAuth({
   // Configure one or more authentication providers
   providers: [
