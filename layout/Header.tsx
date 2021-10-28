@@ -43,8 +43,8 @@ function Header() {
           </li>
 
           <li>
-            <Link href="/fb-your-crush">
-              <a>FB Crush snipping</a>
+            <Link href="/fb-toolkit">
+              <a>FB toolkit</a>
             </Link>
           </li>
         </ul>
