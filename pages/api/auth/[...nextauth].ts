@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 
-console.log("MONGODB_URI", process.env.MONGODB_URI);
+const MONGODB_URI: string = process.env.MONGODB_URI;
 
 export default NextAuth({
   // Configure one or more authentication providers
@@ -12,7 +12,7 @@ export default NextAuth({
       scope: "read:user",
     }),
   ],
-  database: process.env.MONGODB_URI,
+  database: MONGODB_URI,
   jwt: {
     signingKey: process.env.JWT_SIGNING_PRIVATE_KEY,
 
