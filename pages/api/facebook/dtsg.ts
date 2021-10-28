@@ -1,6 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
-import qs from "qs";
 
 async function getFbCSRF(cookie: string) {
   const response: AxiosResponse<string> = await axios.get(

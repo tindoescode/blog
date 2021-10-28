@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
-import qs from "qs";
+import * as qs from "qs";
 
 async function Like(cookie: any, fb_dtsg: any, postId: any) {
   var data = qs.stringify({
