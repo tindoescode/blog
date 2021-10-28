@@ -1,4 +1,3 @@
-import axios, { AxiosResponse } from "axios";
 import React, {
   ReactElement,
   useEffect,
@@ -9,6 +8,7 @@ import React, {
   ChangeEventHandler,
   useMemo,
 } from "react";
+import Head from "next/head";
 import { useForm, SubmitHandler } from "react-hook-form";
 import MultipleSelect from "../../domain/core/MultipleSelect";
 import useFbAPI, { FriendInfo } from "../../hooks/useFbAPI";
@@ -281,6 +281,9 @@ function FacebookCrush(): ReactElement {
 
   return (
     <div className="bg-white rounded-md shadow-xl p-2">
+      <Head>
+        <title>Facebook Toolkit</title>
+      </Head>
       <h2 className="mb-2">Facebook Toolkit</h2>
 
       {/* form */}
