@@ -3,11 +3,15 @@ import { Card, Pagination } from "../domain/post";
 import styles from "../styles/Home.module.scss";
 import Image from "next/image";
 import useToggle from "../hooks/useToggle";
+import Head from "next/head";
 import avatar from "../public/images/avatar.jpg";
 
 export default function Component() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-2 my-2">
+      <Head>
+        <title>Home</title>
+      </Head>
       <div className="box">
         <div className="grid gap-1 p-2">
           <h3>Bài viết</h3>

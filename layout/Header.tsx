@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import Link from "next/link";
 import styles from "./Header.module.scss";
 import useToggle from "../hooks/useToggle";
@@ -10,7 +10,7 @@ const nav = [
 ];
 function Header() {
   const [menu, toggleMenu] = useToggle(false);
-  const { data: session, status } = useSession();
+  const { data: session, status } = useSession({ required: false });
 
   const turnOffMenu = useCallback(() => {
     if (menu) toggleMenu();
@@ -59,7 +59,7 @@ function Header() {
             }}
           >
             <LoginSvg />
-            {!session ? "Đăng nhập" : `${session.user?.name} | Đăng xuất`}
+            {!session ? "Đăng nhập" : `${session.user.name} | Đăng xuất`}
           </button>
         </div>
       </nav>
