@@ -7,6 +7,10 @@ module.exports = {
   images: {
     domains: ["ucarecdn.com"],
   },
+  webpack: (config) => {
+    config.experiments = { topLevelAwait: true, layers: true };
+    return config;
+  },
 
   reactStrictMode: true,
 };
