@@ -59,7 +59,7 @@ function Header() {
             }}
           >
             <LoginSvg />
-            {!session ? "Đăng nhập" : `${session.user.name} | Đăng xuất`}
+            {!session ? "Đăng nhập" : `${session.user?.name} | Đăng xuất`}
           </button>
         </div>
       </nav>
