@@ -8,24 +8,27 @@ import avatar from "../public/images/avatar.jpg";
 export default function Component() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-2 my-2">
-      <div className="grid gap-1 md:col-span-2">
-        <h3 className={styles.title}>Bài viết</h3>
-        <Card name="Bài viết đầu tiên" />
-        <Card name="Bài viết đầu tiên" />
-        <Card name="Bài viết đầu tiên" />
-        <Card name="Bài viết đầu tiên" />
+      <div className="box">
+        <div className="grid gap-1 p-2">
+          <h3>Bài viết</h3>
+          <Card name="Bài viết đầu tiên" />
+          <Card name="Bài viết đầu tiên" />
+          <Card name="Bài viết đầu tiên" />
+          <Card name="Bài viết đầu tiên" />
 
-        <Pagination />
+          <Pagination />
+        </div>
       </div>
-      <div className="">
-        <div className={styles.info_wrapper}>
+
+      <div>
+        <div className="[ rounded shadow-md p-2 flex flex-col items-center justify-center h-56 ] [ bg-lime-500 leading-relaxed relative gap-3 text-white ] info-wrapper">
           <Image
             src="https://ucarecdn.com/2a59a3a6-231b-4642-8e0b-7c2ce95160cf/pexelsyogendrasingh5334185.jpg"
             layout="fill"
           />
           <div className="w-32 h-32 relative hover:scale-105 transform transition-all duration-500">
             <Image
-              className={styles.avatar}
+              className="w-32 h-32 rounded-full my-4 bg-lime-500"
               src={avatar}
               layout="fill"
               objectFit="cover"
@@ -60,6 +63,12 @@ export default function Component() {
           </button>
         </div>
       </div>
+
+      <style jsx>{`
+        .info-wrapper > * {
+          z-index: 1;
+        }
+      `}</style>
     </div>
   );
 }

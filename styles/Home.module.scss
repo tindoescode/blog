@@ -1,13 +1,4 @@
-.avatar {
-  @apply w-32 h-32 rounded-full my-4;
-  @apply bg-lime-500;
-}
-
 .info_wrapper {
-  @apply rounded shadow-md p-2 flex flex-col items-center justify-center h-56;
-  @apply bg-lime-500 leading-relaxed relative gap-3;
-  color: white;
-
   & > * {
     z-index: 1;
   }
