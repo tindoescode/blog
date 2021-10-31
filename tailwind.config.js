@@ -19,6 +19,7 @@ module.exports = {
         sky: colors.sky,
         lime: colors.lime,
         cyan: colors.cyan,
+        rose: colors.rose,
       },
     },
   },

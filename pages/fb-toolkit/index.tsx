@@ -61,23 +61,20 @@ function FacebookCrush(): ReactElement {
 
   const [selectMenu, setSelectMenu] = useState(0);
 
-  const onSubmit: SubmitHandler<FormValues> = useCallback(
-    async (data) => {
-      // Logout
-      if (cookie) {
-        reset();
-        setCookie(null);
-        logging("Đăng xuất thành công!");
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
+    // Logout
+    if (cookie) {
+      reset();
+      setCookie(null);
+      logging("Đăng xuất thành công!");
 
-        return;
-      }
+      return;
+    }
 
-      // Login
-      setCookie(data.cookie);
-      logging("Đăng nhập thành công!");
-    },
-    [cookie, reset, setCookie]
-  );
+    // Login
+    setCookie(data.cookie);
+    logging("Đăng nhập thành công!");
+  };
 
   // For logging textarea
   const logging = (text: string) => {
@@ -350,7 +347,7 @@ function FacebookCrush(): ReactElement {
           disabled
         ></textarea>
         <button
-          className="bg-red-500 text-white hover:bg-red-700 absolute -top-1 -right-1"
+          className="bg-red-500 text-white hover:bg-red-700 absolute top-2 right-0"
           onClick={() => deleteLogHandler()}
         >
           Xoá log

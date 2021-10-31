@@ -41,9 +41,11 @@
 @import "button.scss"; // basic components
 
 input[type="text"],
-input[type="number"],
+input[type="number"] {
+  @apply p-1 ring-1 ring-gray-300 rounded-sm w-full;
+}
 textarea {
-  @apply p-1 border border-sky-400 rounded-sm w-full;
+  @apply p-1 ring-1 ring-green-300 rounded-sm w-full;
 }
 
 // Animations

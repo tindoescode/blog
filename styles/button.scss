@@ -1,17 +1,15 @@
 button {
-  @apply p-2 text-white cursor-pointer relative;
-
-  @apply bg-gradient-to-br from-lime-400 to-green-400;
+  @apply p-2 text-white cursor-pointer relative transition bg-rose-400;
 
   &:hover {
-    @apply bg-opacity-90;
+    @apply bg-rose-500;
   }
 
   .btn-green {
-    @apply bg-green-500;
+    @apply bg-gradient-to-br from-lime-400 to-green-400;
 
     &:hover {
-      @apply bg-gradient-to-br from-cyan-400 to-sky-500;
+      @apply bg-opacity-90;
     }
   }
 }
