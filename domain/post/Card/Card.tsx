@@ -3,7 +3,7 @@ import styles from "./Card.module.scss";
 
 interface Props {
   name: String;
-  description: String;
+  description?: String;
 }
 
 const Card = (props: Props) => {
