@@ -40,9 +40,7 @@ export default function Component() {
           </div>
           <div className="text-center">
             <h3 className="font-semibold">Trung Tín</h3>
-            <p className="text-sm leading-6">
-              ❝Mình là người nghiện màu xanh.❞
-            </p>
+            <p className="text-sm leading-6">❝Laputa gate keeper.❞</p>
           </div>
         </div>
 
