@@ -9,7 +9,7 @@
       @apply font-bold;
 
       a {
-        @apply text-black w-full leading-8;
+        @apply relative text-black w-full leading-8;
         z-index: 1;
 
         &::before {

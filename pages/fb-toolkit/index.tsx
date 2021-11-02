@@ -3,16 +3,14 @@ import React, {
   useEffect,
   useState,
   useRef,
-  Fragment,
-  useCallback,
   ChangeEventHandler,
-  useMemo,
 } from "react";
 import Head from "next/head";
 import { useForm, SubmitHandler } from "react-hook-form";
 import MultipleSelect from "../../domain/core/MultipleSelect";
-import useFbAPI, { FriendInfo } from "../../hooks/useFbAPI";
-import useMultipleSelect from "../../hooks/useMultipleSelect";
+import useFbAPI, { FriendInfo } from "../../domain/hooks/useFbAPI";
+import useMultipleSelect from "../../domain/hooks/useMultipleSelect";
+import axios from "axios";
 
 type FormValues = {
   cookie: string | undefined;
@@ -33,7 +31,7 @@ interface UserPost {
   };
 }
 
-function FacebookCrush(): ReactElement {
+function FacebookToolkit(): ReactElement {
   const {
     register,
     handleSubmit,
@@ -50,8 +48,10 @@ function FacebookCrush(): ReactElement {
     cookie,
     setCookie,
     token,
+    tokenFull,
     fb_dtsg,
     fetchFriendList,
+    fetchGroupPost,
     fetchPosts,
   } = useFbAPI({
     onFail: () => {
@@ -97,6 +97,16 @@ function FacebookCrush(): ReactElement {
           <input type="text" className="w-full" defaultValue={token} />
         </div>
       )}
+      {tokenFull && (
+        <div className="text-sm my-2">
+          <b>
+            FB Access Token (Instagram/Full quyền | Chỉ dùng khi cần để tránh
+            spam
+          </b>
+          :
+          <input type="text" className="w-full" defaultValue={tokenFull} />
+        </div>
+      )}
     </div>
   );
 
@@ -125,10 +135,11 @@ function FacebookCrush(): ReactElement {
       }
     }, [numberOfPost]);
 
-    const onChangeNumberOfPost: ChangeEventHandler<HTMLInputElement> =
-      useCallback(async (e) => {
-        setNumberOfPost(parseInt(e.target.value));
-      }, []);
+    const onChangeNumberOfPost: ChangeEventHandler<HTMLInputElement> = async (
+      e
+    ) => {
+      setNumberOfPost(parseInt(e.target.value));
+    };
 
     return (
       <>
@@ -254,6 +265,33 @@ function FacebookCrush(): ReactElement {
     </>
   );
 
+  const GroupReply = () => {
+    const [posts, setPosts] = useState<Array<any>>([]);
+
+    useEffect(() => {
+      const groupId = "4481966858505424";
+
+      fetchGroupPost(groupId).then((posts) => {
+        console.log(posts);
+        setPosts(posts.data);
+      });
+    }, []);
+    return (
+      <>
+        <h2>Trả lời nhóm</h2>
+
+        <div className="divide-y divide-yellow-400">
+          {posts instanceof Array &&
+            posts.map((post) => (
+              <div className="p-2 flex text-sm" key={post.id}>
+                {post.message} - {post.from.name}
+              </div>
+            ))}
+        </div>
+      </>
+    );
+  };
+
   // Button handler
   const deleteLogHandler = () => {
     logElmRef.current.value = "";
@@ -274,6 +312,10 @@ function FacebookCrush(): ReactElement {
       name: "Tự động like target",
       render: () => <AutoLike />,
     },
+    {
+      name: "Bot trả lời bài viết group",
+      render: () => <GroupReply />,
+    },
   ];
 
   return (
@@ -283,6 +325,16 @@ function FacebookCrush(): ReactElement {
       </Head>
       <h2 className="mb-2">Facebook Toolkit</h2>
 
+      <label htmlFor="">Get token full quyền (1/11/2021):</label>
+      <input
+        onClick={(e) => {
+          navigator.clipboard.writeText((e.target as HTMLInputElement).value);
+          console.log("Đã copy");
+          e.preventDefault;
+        }}
+        type="text"
+        defaultValue="view-source:https://www.facebook.com/dialog/oauth?client_id=124024574287414&redirect_uri=https://www.instagram.com/accounts/signup/&&scope=email&response_type=token"
+      />
       {/* form */}
       <form className="flex flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
         {/* register your input into the hook by invoking the "register" function */}
@@ -357,4 +409,4 @@ function FacebookCrush(): ReactElement {
   );
 }
 
-export default FacebookCrush;
+export default FacebookToolkit;

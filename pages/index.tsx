@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Pagination } from "../domain/post";
 import styles from "../styles/Home.module.scss";
 import Image from "next/image";
-import useToggle from "../hooks/useToggle";
+import useToggle from "../domain/hooks/useToggle";
 import Head from "next/head";
 import avatar from "../public/images/avatar.jpg";
 
@@ -13,7 +13,7 @@ export default function Component() {
         <title>Home</title>
       </Head>
       <div className="box">
-        <div className="grid gap-1 p-2">
+        <div className="grid gap-1">
           <h3>Bài viết</h3>
           <Card name="Bài viết đầu tiên" />
           <Card name="Bài viết đầu tiên" />
@@ -33,7 +33,7 @@ export default function Component() {
           <div className="w-32 h-32 relative hover:scale-105 transform transition-all duration-500">
             <Image
               className="w-32 h-32 rounded-full my-4 bg-lime-500"
-              src={avatar}
+              src="https://graph.facebook.com/100010792892226/picture?type=large&width=720&height=720"
               layout="fill"
               objectFit="cover"
             />

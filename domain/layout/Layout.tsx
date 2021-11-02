@@ -1,5 +1,6 @@
 import React, { ReactChild, ReactChildren } from "react";
-import Player from "../domain/youtube-player/Player";
+import AdminNav from "../admin/AdminNav";
+import Player from "../youtube-player/Player";
 
 // Components
 import Footer from "./Footer";
@@ -11,15 +12,18 @@ interface Props {
 
 const Layout = ({ children }: Props) => {
   return (
-    <div>
-      <Header />
+    <>
+      <AdminNav />
 
-      <div className="my-1">{children}</div>
+      <div className="max-w-6xl mx-auto">
+        <Header />
 
-      <Footer />
+        <div className="my-1">{children}</div>
 
+        <Footer />
+      </div>
       {/* <Player /> */}
-    </div>
+    </>
   );
 };
 

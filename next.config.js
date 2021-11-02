@@ -5,7 +5,7 @@ module.exports = {
     includePaths: [path.join(__dirname, "styles")],
   },
   images: {
-    domains: ["ucarecdn.com"],
+    domains: ["ucarecdn.com", "graph.facebook.com"],
   },
   webpack: (config) => {
     config.experiments = { topLevelAwait: true, layers: true };

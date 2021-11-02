@@ -4,9 +4,9 @@ import React, {
   useDebugValue,
   useState,
 } from "react";
-import { FriendInfo } from "../../hooks/useFbAPI";
+import { FriendInfo } from "../hooks/useFbAPI";
 import useVirtual from "react-cool-virtual";
-import useToggle from "../../hooks/useToggle";
+import useToggle from "../hooks/useToggle";
 import clsx from "clsx";
 
 interface Props {

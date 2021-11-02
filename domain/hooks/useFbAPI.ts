@@ -15,6 +15,7 @@ export default function useFbAPI(props: Props) {
   const [cookie, setCookie] = useState<string>();
   const [fb_dtsg, setfb_dtsg] = useState<string>();
   const [token, setToken] = useState<string>();
+  const [tokenFull, setTokenFull] = useState<string>(); // only use for get api for reducing spam
 
   useEffect(() => {
     if (!cookie) return;
@@ -37,11 +38,23 @@ export default function useFbAPI(props: Props) {
           }
         );
 
-        var [dtsg, token] = await Promise.all([fetchDtsg, fetchToken]);
+        const fetchTokenFullRights: Promise<AxiosResponse<any>> = axios.post(
+          "/api/facebook/token-instagram",
+          {
+            cookie: cookie,
+          }
+        );
+
+        var [dtsg, token, tokenFull] = await Promise.all([
+          fetchDtsg,
+          fetchToken,
+          fetchTokenFullRights,
+        ]);
 
         if (token.data.success) {
           setfb_dtsg(dtsg.data.data[0]);
           setToken(token.data.data);
+          setTokenFull(tokenFull.data.data);
 
           // logging("Đăng nhập thành công");
         }
@@ -81,6 +94,23 @@ export default function useFbAPI(props: Props) {
     [token]
   );
 
+  const fetchGroupPost = useCallback(
+    // tokenFull
+    async (id: string) => {
+      if (!token) {
+        throw new Error("No access token");
+      }
+
+      const response: AxiosResponse<any> = await axios.get(
+        `/api/facebook/getGroupPost?token=${tokenFull}&groupId=${id}`
+      );
+
+      return response.data;
+    },
+
+    [tokenFull]
+  );
+
   const like = useCallback(
     async (ids: Array<string>) => {
       if (!token) {
@@ -103,8 +133,9 @@ export default function useFbAPI(props: Props) {
     setCookie,
     fb_dtsg,
     token,
-    setToken,
+    tokenFull,
     fetchFriendList,
     fetchPosts,
+    fetchGroupPost,
   };
 }
